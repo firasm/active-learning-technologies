@@ -1,0 +1,27 @@
+name: build and deploy build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: npm install and build webpack
+        env:
+          remote_host: ${{ secrets.REMOTE_HOST }}
+          remote_user: ${{ secrets.REMOTE_USER }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}
+          local_dir: "_build/html"
+          remote_dir: ${{ secrets.REMOTE_TARGET }}
+        run: |
+          npm install
+          npm run build
+          mkdir ~/.ssh
+          echo "$remote_key" > ~/.ssh/gh_actions_key
+          chmod 600 ~/.ssh/gh_actions_key
+          rsync -avzr --delete -e "ssh -i ~/.ssh/gh_actions_key -o StrictHostKeyChecking=no" ${local_dir} ${remote_user}@${remote_host}:${remote_dir}
