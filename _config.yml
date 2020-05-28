@@ -8,4 +8,6 @@ latex:
     targetname: book.tex
 
 launch_buttons:
-  thebelab: true
+  notebook_interface        : "jupyterlab"  # The interface interactive links will activate ["classic", "jupyterlab"]
+  binderhub_url             : "https://mybinder.org"
+  thebelab                  : true
