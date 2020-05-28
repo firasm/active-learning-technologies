@@ -12,6 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Install npm and build
+      run: |
+        npm install
+        npm run build
 
     # Install dependencies
     - name: Set up Python 3.7
@@ -38,8 +42,6 @@ jobs:
         SOURCE: "_build/html"
         TARGET: ${{ secrets.REMOTE_TARGET }}
       run: |
-        npm install
-        npm run build
         mkdir ~/.ssh
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/gh_actions_key
         chmod 600 ~/.ssh/gh_actions_key
