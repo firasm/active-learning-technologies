@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: npm install and build webpack
+      - name: build webpack
         env:
           remote_host: ${{ secrets.REMOTE_HOST }}
           remote_user: ${{ secrets.REMOTE_USER }}
@@ -19,8 +19,6 @@ jobs:
           local_dir: "_build/html"
           remote_dir: ${{ secrets.REMOTE_TARGET }}
         run: |
-          npm install
-          npm run build
           mkdir ~/.ssh
           echo "$remote_key" > ~/.ssh/gh_actions_key
           chmod 600 ~/.ssh/gh_actions_key
