@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: npm install and build webpack
         env:
           remote_host: ${{ secrets.REMOTE_HOST }}
@@ -19,6 +19,7 @@ jobs:
           local_dir: "_build/html"
           remote_dir: ${{ secrets.REMOTE_TARGET }}
         run: |
+          npm init
           npm install
           npm run build
           mkdir ~/.ssh
