@@ -27,11 +27,7 @@ jobs:
     - name: Build the book
       run: |
         jupyter-book build .
-        
-    - name: ssh test
-      run: |
-        ssh -v ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.REMOTE_TARGET }}
-        
+
    # Push to server
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@v2.0.7
