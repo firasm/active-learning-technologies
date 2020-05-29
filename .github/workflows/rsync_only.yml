@@ -15,11 +15,12 @@ jobs:
         env:
           remote_host: ${{ secrets.REMOTE_HOST }}
           remote_user: ${{ secrets.REMOTE_USER }}
-          remote_key: ${{ secrets.DEPLOY_KEY }}
+          remote_key: ${{ secrets.SERVER_SSH_KEY }}
           local_dir: "_build/html"
           remote_dir: ${{ secrets.REMOTE_TARGET }}
         run: |
           mkdir ~/.ssh
+          echo "this is a test" > ~/test.txt
           echo "$remote_key" > ~/.ssh/gh_actions_key
           chmod 600 ~/.ssh/gh_actions_key
-          rsync -avzr --delete -e "ssh -i ~/.ssh/gh_actions_key -o StrictHostKeyChecking=no" ${local_dir} ${remote_user}@${remote_host}:${remote_dir}
+          rsync -avzr --delete ./test.txt ${remote_user}@${remote_host}:${remote_dir}
