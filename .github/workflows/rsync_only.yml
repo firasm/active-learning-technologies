@@ -15,7 +15,7 @@ jobs:
         env:
           remote_host: ${{ secrets.REMOTE_HOST }}
           remote_user: ${{ secrets.REMOTE_USER }}
-          remote_key: ${{ secrets.DEPLOY_KEY }}
+          remote_key: ${{ secrets.SERVER_SSH_KEY }}
           local_dir: "_build/html"
           remote_dir: ${{ secrets.REMOTE_TARGET }}
         run: |
