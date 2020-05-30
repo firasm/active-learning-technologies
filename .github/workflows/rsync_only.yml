@@ -39,8 +39,8 @@ jobs:
         REMOTE_DIR: ${{ secrets.REMOTE_TARGET }}
       run: |
         mkdir ~/.ssh
-        echo "$remote_key" > ~/.ssh/id_rsa
-        ssh-keyscan -H $remote_host >> ~/.ssh/known_hosts
+        echo "$REMOTE_KEY" > ~/.ssh/id_rsa
+        ssh-keyscan -H $REMOTE_HOST >> ~/.ssh/known_hosts
         chmod 600 ~/.ssh/id_rsa
-        ssh -T -i ~/.ssh/id_rsa $remote_user@$remote_host
+        ssh -T -i ~/.ssh/id_rsa $REMOTE_USER@$REMOTE_HOST
         rsync -avzr --delete $LOCAL_DIR $REMOTE_USER@$REMOTE_HOST:$REMOTE_DIR
