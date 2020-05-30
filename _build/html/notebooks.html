@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Content with notebooks &#8212; Active Learning Technologies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="_static/thebelab.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Content with notebooks" href="test_notebook.html" />
+    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Active Learning Technologies</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="markdown.html">Markdown files</a>
+  </li>
+  <li class="">
+    <a href="syntax.html">Jupyter Book markdown syntax</a>
+  </li>
+  <li class="">
+    <a href="content.html">Content in Jupyter Book</a>
+  </li>
+  <li class="">
+    <a href="intro.html">Welcome to your Jupyter Book</a>
+  </li>
+  <li class="active">
+    <a href="">Content with notebooks</a>
+  </li>
+  <li class="">
+    <a href="test_notebook.html">Content with notebooks</a>
+  </li>
+  <li class="">
+    <a href="README.html">active-learning-technologies</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="_sources/notebooks.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/firasm/active-learning-technologies/master?urlpath=lab/tree/notebooks.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="content-with-notebooks">
+<h1>Content with notebooks<a class="headerlink" href="#content-with-notebooks" title="Permalink to this headline">¶</a></h1>
+<p>You can also create content with Jupyter Notebooks. This means that you can include
+code blocks and their outputs in your book.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">w</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">):</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">w</span> <span class="o">*</span> <span class="n">x</span><span class="p">))</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+
+<span class="n">interact</span><span class="p">(</span><span class="n">update</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">movies</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">UrlData</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">movies</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">DataFormat</span><span class="p">(</span><span class="n">parse</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Release_Date&quot;</span><span class="p">:</span><span class="s2">&quot;date&quot;</span><span class="p">})</span>
+<span class="p">)</span>
+<span class="n">ratings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;NC-17&#39;</span><span class="p">,</span> <span class="s1">&#39;PG&#39;</span><span class="p">,</span> <span class="s1">&#39;PG-13&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">]</span>
+<span class="n">genres</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Action&#39;</span><span class="p">,</span> <span class="s1">&#39;Adventure&#39;</span><span class="p">,</span> <span class="s1">&#39;Black Comedy&#39;</span><span class="p">,</span> <span class="s1">&#39;Comedy&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;Concert/Performance&#39;</span><span class="p">,</span> <span class="s1">&#39;Documentary&#39;</span><span class="p">,</span> <span class="s1">&#39;Drama&#39;</span><span class="p">,</span> <span class="s1">&#39;Horror&#39;</span><span class="p">,</span> <span class="s1">&#39;Musical&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;Romantic Comedy&#39;</span><span class="p">,</span> <span class="s1">&#39;Thriller/Suspense&#39;</span><span class="p">,</span> <span class="s1">&#39;Western&#39;</span><span class="p">]</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">(</span><span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
+    <span class="n">Rounded_IMDB_Rating</span> <span class="o">=</span> <span class="s2">&quot;floor(datum.IMDB_Rating)&quot;</span><span class="p">,</span>
+    <span class="n">Hundred_Million_Production</span> <span class="o">=</span>  <span class="s2">&quot;datum.Production_Budget &gt; 100000000.0 ? 100 : 10&quot;</span><span class="p">,</span>
+    <span class="n">Release_Year</span> <span class="o">=</span> <span class="s2">&quot;year(datum.Release_Date)&quot;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">IMDB_Rating</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">FieldOneOfPredicate</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;MPAA_Rating&#39;</span><span class="p">,</span> <span class="n">oneOf</span><span class="o">=</span><span class="n">ratings</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Worldwide_Gross:Q&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">9</span><span class="p">),</span> <span class="n">clamp</span><span class="o">=</span><span class="kc">True</span><span class="p">)),</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;IMDB_Rating:Q&#39;</span><span class="p">,</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Title:N&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># A slider filter</span>
+<span class="n">year_slider</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1969</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">2018</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">slider_selection</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">year_slider</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Release_Year&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Release Year_&quot;</span><span class="p">)</span>
+
+
+<span class="n">filter_year</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
+    <span class="n">slider_selection</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">slider_selection</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Slider Filtering&quot;</span><span class="p">)</span>
+
+<span class="c1"># A dropdown filter</span>
+<span class="n">genre_dropdown</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_select</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">genres</span><span class="p">)</span>
+<span class="n">genre_select</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Major_Genre&#39;</span><span class="p">],</span> <span class="n">bind</span><span class="o">=</span><span class="n">genre_dropdown</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Genre&quot;</span><span class="p">)</span>
+
+<span class="n">filter_genres</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
+    <span class="n">genre_select</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">genre_select</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Dropdown Filtering&quot;</span><span class="p">)</span>
+
+<span class="c1">#color changing marks</span>
+<span class="n">rating_radio</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_radio</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">ratings</span><span class="p">)</span>
+
+<span class="n">rating_select</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MPAA_Rating&#39;</span><span class="p">],</span> <span class="n">bind</span><span class="o">=</span><span class="n">rating_radio</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Rating&quot;</span><span class="p">)</span>
+<span class="n">rating_color_condition</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">rating_select</span><span class="p">,</span>
+                      <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;MPAA_Rating:N&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+                      <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">))</span>
+
+<span class="n">highlight_ratings</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
+    <span class="n">rating_select</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">rating_color_condition</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Radio Button Highlighting&quot;</span><span class="p">)</span>
+
+<span class="c1"># Boolean selection for format changes</span>
+<span class="n">input_checkbox</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_checkbox</span><span class="p">()</span>
+<span class="n">checkbox_selection</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">input_checkbox</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Big Budget Films&quot;</span><span class="p">)</span>
+
+<span class="n">size_checkbox_condition</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">checkbox_selection</span><span class="p">,</span>
+                                        <span class="n">alt</span><span class="o">.</span><span class="n">SizeValue</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span>
+                                        <span class="n">alt</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="s1">&#39;Hundred_Million_Production:Q&#39;</span><span class="p">)</span>
+                                       <span class="p">)</span>
+
+<span class="n">budget_sizing</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
+    <span class="n">checkbox_selection</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">size</span><span class="o">=</span><span class="n">size_checkbox_condition</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Checkbox Formatting&quot;</span><span class="p">)</span>
+
+<span class="p">(</span> <span class="n">filter_year</span> <span class="o">|</span> <span class="n">filter_genres</span><span class="p">)</span> <span class="o">&amp;</span>  <span class="p">(</span><span class="n">highlight_ratings</span> <span class="o">|</span> <span class="n">budget_sizing</span>  <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is a lot more that you can do with outputs (such as including interactive outputs)
+with your book. For more information about this, see <a class="reference external" href="https://executablebooks.github.io/cli/start/overview.html">the Jupyter Book documentation</a></p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "firasm/active-learning-technologies",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "."
+        }
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Welcome to your Jupyter Book</a>
+    <a class='right-next' id="next-link" href="test_notebook.html" title="next page">Content with notebooks</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Firas Moosvi<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>
