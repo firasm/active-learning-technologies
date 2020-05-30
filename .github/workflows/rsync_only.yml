@@ -23,4 +23,4 @@ jobs:
           echo "this is a test" > ~/test.txt
           echo "$remote_key" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh -vvv -tt moosvi@coburg.dreamhost.com
+          ssh -vvv -tt -i ~/.ssh/id_rsa moosvi@coburg.dreamhost.com
