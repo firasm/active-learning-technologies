@@ -24,4 +24,4 @@ jobs:
           echo "$remote_key" > ~/.ssh/id_rsa
           ssh-keyscan -H coburg.dreamhost.com >> ~/.ssh/known_hosts
           chmod 600 ~/.ssh/id_rsa
-          ssh -vvv -tt -i ~/.ssh/id_rsa moosvi@coburg.dreamhost.com
+          ssh -T -i ~/.ssh/id_rsa $remote_user@$remote_host
