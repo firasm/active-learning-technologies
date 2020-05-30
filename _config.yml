@@ -9,7 +9,7 @@ latex:
 
 # Execution settings
 execute:
-  execute_notebooks         : auto
+  execute_notebooks         : 'off'
 
 # Information about where the book exists on the web
 repository:

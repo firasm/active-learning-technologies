@@ -141,6 +141,18 @@
 
         <!-- Launch buttons -->
         
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/firasm/active-learning-technologies/master?urlpath=lab/tree/notebooks.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
+                
+            </div>
+        </div>
+        
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
 
@@ -187,9 +199,6 @@ code blocks and their outputs in your book.</p>
 <span class="n">interact</span><span class="p">(</span><span class="n">update</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/notebooks_2_0.png" src="_images/notebooks_2_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -274,57 +283,6 @@ code blocks and their outputs in your book.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<div id="altair-viz-1832221f3b6e48258ed877ae283f78da"></div>
-<script type="text/javascript">
-  (function(spec, embedOpt){
-    let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-1832221f3b6e48258ed877ae283f78da") {
-      outputDiv = document.getElementById("altair-viz-1832221f3b6e48258ed877ae283f78da");
-    }
-    const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
-    };
-
-    function loadScript(lib) {
-      return new Promise(function(resolve, reject) {
-        var s = document.createElement('script');
-        s.src = paths[lib];
-        s.async = true;
-        s.onload = () => resolve(paths[lib]);
-        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
-        document.getElementsByTagName("head")[0].appendChild(s);
-      });
-    }
-
-    function showError(err) {
-      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
-      throw err;
-    }
-
-    function displayChart(vegaEmbed) {
-      vegaEmbed(outputDiv, spec, embedOpt)
-        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
-    }
-
-    if(typeof define === "function" && define.amd) {
-      requirejs.config({paths});
-      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
-    } else if (typeof vegaEmbed === "function") {
-      displayChart(vegaEmbed);
-    } else {
-      loadScript("vega")
-        .then(() => loadScript("vega-lite"))
-        .then(() => loadScript("vega-embed"))
-        .catch(showError)
-        .then(() => displayChart(vegaEmbed));
-    }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "vconcat": [{"hconcat": [{"mark": {"type": "point", "filled": true}, "encoding": {"tooltip": {"type": "nominal", "field": "Title"}, "x": {"type": "quantitative", "field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "height": 200, "selection": {"Release Year_": {"type": "single", "bind": {"input": "range", "max": 2018, "min": 1969, "step": 1}, "fields": ["Release_Year"]}}, "title": "Slider Filtering", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}, {"filter": {"selection": "Release Year_"}}], "width": 200}, {"mark": {"type": "point", "filled": true}, "encoding": {"tooltip": {"type": "nominal", "field": "Title"}, "x": {"type": "quantitative", "field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "height": 200, "selection": {"Genre": {"type": "single", "fields": ["Major_Genre"], "bind": {"input": "select", "options": ["Action", "Adventure", "Black Comedy", "Comedy", "Concert/Performance", "Documentary", "Drama", "Horror", "Musical", "Romantic Comedy", "Thriller/Suspense", "Western"]}}}, "title": "Dropdown Filtering", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}, {"filter": {"selection": "Genre"}}], "width": 200}]}, {"hconcat": [{"mark": {"type": "point", "filled": true}, "encoding": {"color": {"condition": {"type": "nominal", "field": "MPAA_Rating", "legend": null, "selection": "Rating"}, "value": "lightgray"}, "tooltip": {"type": "nominal", "field": "Title"}, "x": {"type": "quantitative", "field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "height": 200, "selection": {"Rating": {"type": "single", "fields": ["MPAA_Rating"], "bind": {"input": "radio", "options": ["G", "NC-17", "PG", "PG-13", "R"]}}}, "title": "Radio Button Highlighting", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}], "width": 200}, {"mark": {"type": "point", "filled": true}, "encoding": {"size": {"type": "quantitative", "condition": {"value": 25, "selection": "Big Budget Films"}, "field": "Hundred_Million_Production"}, "tooltip": {"type": "nominal", "field": "Title"}, "x": {"type": "quantitative", "field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "height": 200, "selection": {"Big Budget Films": {"type": "single", "bind": {"input": "checkbox"}}}, "title": "Checkbox Formatting", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}], "width": 200}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json", "format": {"parse": {"Release_Date": "date"}}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"}, {"mode": "vega-lite"});
-</script></div></div>
 </div>
 <p>There is a lot more that you can do with outputs (such as including interactive outputs)
 with your book. For more information about this, see <a class="reference external" href="https://executablebooks.github.io/cli/start/overview.html">the Jupyter Book documentation</a></p>
