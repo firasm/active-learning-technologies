@@ -43,5 +43,4 @@ jobs:
         ssh-keyscan -H $remote_host >> ~/.ssh/known_hosts
         chmod 600 ~/.ssh/id_rsa
         ssh -T -i ~/.ssh/id_rsa $remote_user@$remote_host
-        rsync -avzr --delete -e "ssh -i ~/.ssh/id_rsa" ${LOCAL_DIR} ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_DIR}
-
+        rsync -avzr --delete $LOCAL_DIR $REMOTE_USER@$REMOTE_HOST:$REMOTE_DIR
