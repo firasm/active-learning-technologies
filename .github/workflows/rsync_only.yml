@@ -16,11 +16,14 @@ jobs:
           remote_host: ${{ secrets.REMOTE_HOST }}
           remote_user: ${{ secrets.REMOTE_USER }}
           remote_key: ${{ secrets.SERVER_SSH_KEY }}
+          public_key: ${{ secrets.PUBLIC_SSH_KEY }}
           local_dir: "_build/html"
           remote_dir: ${{ secrets.REMOTE_TARGET }}
         run: |
           mkdir ~/.ssh
           echo "this is a test" > ~/test.txt
           echo "$remote_key" > ~/.ssh/id_rsa
+          echo "$public_key" > ~/.ssh/id_rsa.pub
           chmod 600 ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa.pub
           ssh -vvv -tt -i ~/.ssh/id_rsa moosvi@coburg.dreamhost.com
