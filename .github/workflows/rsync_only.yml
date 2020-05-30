@@ -21,6 +21,6 @@ jobs:
         run: |
           mkdir ~/.ssh
           echo "this is a test" > ~/test.txt
-          echo "$remote_key" > ~/.ssh/gh_actions_key
-          chmod 600 ~/.ssh/gh_actions_key
+          echo "$remote_key" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
           rsync -avzr --delete ./test.txt ${remote_user}@${remote_host}:${remote_dir}
