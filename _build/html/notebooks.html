@@ -32,7 +32,7 @@
     <script async="async" src="_static/thebelab.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="active-learning-technologies" href="README.html" />
+    <link rel="next" title="Content with notebooks" href="test_notebook.html" />
     <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -82,6 +82,9 @@
   </li>
   <li class="active">
     <a href="">Content with notebooks</a>
+  </li>
+  <li class="">
+    <a href="test_notebook.html">Content with notebooks</a>
   </li>
   <li class="">
     <a href="README.html">active-learning-technologies</a>
@@ -164,7 +167,7 @@ code blocks and their outputs in your book.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 </pre></div>
 </div>
@@ -192,7 +195,7 @@ code blocks and their outputs in your book.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
-<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="k">import</span> <span class="n">data</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
 <span class="n">movies</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">UrlData</span><span class="p">(</span>
     <span class="n">data</span><span class="o">.</span><span class="n">movies</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
@@ -273,14 +276,17 @@ code blocks and their outputs in your book.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-7d5bc4f9b35842e899062f607112c3f0"></div>
+<div id="altair-viz-1832221f3b6e48258ed877ae283f78da"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
-    const outputDiv = document.getElementById("altair-viz-7d5bc4f9b35842e899062f607112c3f0");
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-1832221f3b6e48258ed877ae283f78da") {
+      outputDiv = document.getElementById("altair-viz-1832221f3b6e48258ed877ae283f78da");
+    }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
       "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.0.2?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
       "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
     };
 
@@ -317,7 +323,7 @@ code blocks and their outputs in your book.</p>
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "vconcat": [{"hconcat": [{"mark": {"type": "point", "filled": true}, "encoding": {"tooltip": {"type": "nominal", "field": "Title"}, "x": {"type": "quantitative", "field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "height": 200, "selection": {"Release Year_": {"type": "single", "bind": {"input": "range", "max": 2018, "min": 1969, "step": 1}, "fields": ["Release_Year"]}}, "title": "Slider Filtering", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}, {"filter": {"selection": "Release Year_"}}], "width": 200}, {"mark": {"type": "point", "filled": true}, "encoding": {"tooltip": {"type": "nominal", "field": "Title"}, "x": {"type": "quantitative", "field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "height": 200, "selection": {"Genre": {"type": "single", "fields": ["Major_Genre"], "bind": {"input": "select", "options": ["Action", "Adventure", "Black Comedy", "Comedy", "Concert/Performance", "Documentary", "Drama", "Horror", "Musical", "Romantic Comedy", "Thriller/Suspense", "Western"]}}}, "title": "Dropdown Filtering", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}, {"filter": {"selection": "Genre"}}], "width": 200}]}, {"hconcat": [{"mark": {"type": "point", "filled": true}, "encoding": {"color": {"condition": {"type": "nominal", "field": "MPAA_Rating", "legend": null, "selection": "Rating"}, "value": "lightgray"}, "tooltip": {"type": "nominal", "field": "Title"}, "x": {"type": "quantitative", "field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "height": 200, "selection": {"Rating": {"type": "single", "fields": ["MPAA_Rating"], "bind": {"input": "radio", "options": ["G", "NC-17", "PG", "PG-13", "R"]}}}, "title": "Radio Button Highlighting", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}], "width": 200}, {"mark": {"type": "point", "filled": true}, "encoding": {"size": {"type": "quantitative", "condition": {"value": 25, "selection": "Big Budget Films"}, "field": "Hundred_Million_Production"}, "tooltip": {"type": "nominal", "field": "Title"}, "x": {"type": "quantitative", "field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "height": 200, "selection": {"Big Budget Films": {"type": "single", "bind": {"input": "checkbox"}}}, "title": "Checkbox Formatting", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}], "width": 200}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json", "format": {"parse": {"Release_Date": "date"}}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.2.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "vconcat": [{"hconcat": [{"mark": {"type": "point", "filled": true}, "encoding": {"tooltip": {"type": "nominal", "field": "Title"}, "x": {"type": "quantitative", "field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "height": 200, "selection": {"Release Year_": {"type": "single", "bind": {"input": "range", "max": 2018, "min": 1969, "step": 1}, "fields": ["Release_Year"]}}, "title": "Slider Filtering", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}, {"filter": {"selection": "Release Year_"}}], "width": 200}, {"mark": {"type": "point", "filled": true}, "encoding": {"tooltip": {"type": "nominal", "field": "Title"}, "x": {"type": "quantitative", "field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "height": 200, "selection": {"Genre": {"type": "single", "fields": ["Major_Genre"], "bind": {"input": "select", "options": ["Action", "Adventure", "Black Comedy", "Comedy", "Concert/Performance", "Documentary", "Drama", "Horror", "Musical", "Romantic Comedy", "Thriller/Suspense", "Western"]}}}, "title": "Dropdown Filtering", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}, {"filter": {"selection": "Genre"}}], "width": 200}]}, {"hconcat": [{"mark": {"type": "point", "filled": true}, "encoding": {"color": {"condition": {"type": "nominal", "field": "MPAA_Rating", "legend": null, "selection": "Rating"}, "value": "lightgray"}, "tooltip": {"type": "nominal", "field": "Title"}, "x": {"type": "quantitative", "field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "height": 200, "selection": {"Rating": {"type": "single", "fields": ["MPAA_Rating"], "bind": {"input": "radio", "options": ["G", "NC-17", "PG", "PG-13", "R"]}}}, "title": "Radio Button Highlighting", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}], "width": 200}, {"mark": {"type": "point", "filled": true}, "encoding": {"size": {"type": "quantitative", "condition": {"value": 25, "selection": "Big Budget Films"}, "field": "Hundred_Million_Production"}, "tooltip": {"type": "nominal", "field": "Title"}, "x": {"type": "quantitative", "field": "Worldwide_Gross", "scale": {"clamp": true, "domain": [100000, 1000000000]}}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "height": 200, "selection": {"Big Budget Films": {"type": "single", "bind": {"input": "checkbox"}}}, "title": "Checkbox Formatting", "transform": [{"calculate": "floor(datum.IMDB_Rating)", "as": "Rounded_IMDB_Rating"}, {"calculate": "datum.Production_Budget > 100000000.0 ? 100 : 10", "as": "Hundred_Million_Production"}, {"calculate": "year(datum.Release_Date)", "as": "Release_Year"}, {"filter": "(datum.IMDB_Rating > 0)"}, {"filter": {"field": "MPAA_Rating", "oneOf": ["G", "NC-17", "PG", "PG-13", "R"]}}], "width": 200}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json", "format": {"parse": {"Release_Date": "date"}}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p>There is a lot more that you can do with outputs (such as including interactive outputs)
@@ -352,7 +358,7 @@ with your book. For more information about this, see <a class="reference externa
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Welcome to your Jupyter Book</a>
-    <a class='right-next' id="next-link" href="README.html" title="next page">active-learning-technologies</a>
+    <a class='right-next' id="next-link" href="test_notebook.html" title="next page">Content with notebooks</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
