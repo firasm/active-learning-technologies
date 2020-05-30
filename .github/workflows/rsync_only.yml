@@ -1,26 +1,49 @@
-name: build and deploy build
+name: deploy-book
 
+# Only run this when the master branch changes
 on:
   push:
     branches:
-      - master
+    - master
 
+# This job installs dependencies, build the book, and pushes it to `gh-pages`
 jobs:
-  build:
+  deploy-book:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
-      - name: ssh
-        env:
-          remote_host: ${{ secrets.REMOTE_HOST }}
-          remote_user: ${{ secrets.REMOTE_USER }}
-          remote_key: ${{ secrets.SERVER_SSH_KEY }}
-          local_dir: "_build/html"
-          remote_dir: ${{ secrets.REMOTE_TARGET }}
-        run: |
-          mkdir ~/.ssh
-          echo "$remote_key" > ~/.ssh/id_rsa
-          ssh-keyscan -H $remote_host >> ~/.ssh/known_hosts
-          chmod 600 ~/.ssh/id_rsa
-          ssh -T -i ~/.ssh/id_rsa $remote_user@$remote_host
+    - uses: actions/checkout@v2
+    - name: Install npm and build
+      run: |
+        npm install
+        npm run build
+    # Install dependencies
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+    # Build the book
+    - name: Build the book
+      run: |
+        jupyter-book build .
+        
+    # Push to server
+    - uses: actions/checkout@v2
+    - name: rsync and ssh
+      env:
+        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+        REMOTE_USER: ${{ secrets.REMOTE_USER }}
+        REMOTE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+        LOCAL_DIR: "_build/html"
+        REMOTE_DIR: ${{ secrets.REMOTE_TARGET }}
+      run: |
+        mkdir ~/.ssh
+        echo "$remote_key" > ~/.ssh/id_rsa
+        ssh-keyscan -H $remote_host >> ~/.ssh/known_hosts
+        chmod 600 ~/.ssh/id_rsa
+        ssh -T -i ~/.ssh/id_rsa $remote_user@$remote_host
+        rsync -avzr --delete -e "ssh -i ~/.ssh/id_rsa" ${LOCAL_DIR} ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_DIR}
+
