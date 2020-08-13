@@ -1,8 +1,9 @@
-file: markdown
-sections:
-- file: syntax
-- file: content
-- file: intro
-- file: notebooks
-- file: test_notebook
-- file: README
+- file: home
+
+- part: JupyterDays 2020
+  chapters:
+    - file: jupyterdays/IFrames
+    - file: jupyterdays/clickers
+    - file: jupyterdays/videos
+    - file: jupyterdays/annotating
+    - file: jupyterdays/capacitor_talk/Capacitor
