@@ -11,6 +11,7 @@ latex:
 html:
   navbar_number_sections : false
   home_page_in_navbar : true
+  google_analytics_id: UA-168693744-2
   baseurl : "https://firas.moosvi.com/books/active-learning-technologies/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
   extra_footer : |
       <div>
@@ -18,7 +19,7 @@ html:
           All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 license</a>
       </div>
 
-# Execution settings
+      # Execution settings
 execute:
   execute_notebooks         : off
 
