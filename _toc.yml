@@ -1,9 +1,10 @@
-- file: home
-
-- part: JupyterDays 2020
-  chapters:
-    - file: jupyterdays/IFrames
-    - file: jupyterdays/clickers
-    - file: jupyterdays/videos
-    - file: jupyterdays/annotating
-    - file: jupyterdays/capacitor_talk/Capacitor
+format: jb-book
+root: home
+options:
+  caption: JupyterDays 2020
+chapters:
+- file: jupyterdays/IFrames
+- file: jupyterdays/clickers
+- file: jupyterdays/videos
+- file: jupyterdays/annotating
+- file: jupyterdays/capacitor_talk/Capacitor
