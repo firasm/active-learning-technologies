@@ -1,17 +1,16 @@
 # Testing Embeds and Bootstrap 5
 
+
 <button class="btn btn-success btn-lg" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Open the Participation App</button>
 
 <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Participation App - Agora</h5>
-    <body>
-    <iframe src="https://mta.students.cs.ubc.ca" title="MTA">Here </iframe>
-    </body>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
     <p>Try scrolling the rest of the page to see this option in action.</p>
+    <iframe width="350px" height="600px" src="https://mta.students.cs.ubc.ca" title="MTA" style="border: 5px solid black;">Here </iframe>
   </div>
 </div>
 
